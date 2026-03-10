@@ -76,7 +76,9 @@
             
             <button onclick="window.open('https://linkuei0425.github.io/ChiangMai-US/food.html', '_blank')" class="flex flex-col items-center gap-2 group"><div class="w-14 h-14 bg-white rounded-2xl shadow-sm flex items-center justify-center text-orange-500 group-active:scale-90 transition-transform shadow-[0_4px_10px_rgba(249,115,22,0.2)]"><i class="ph ph-fork-knife text-3xl"></i></div><span class="text-[11px] font-bold text-gray-700">Food Guide</span></button>
             <button onclick="window.open('https://linkuei0425.github.io/ChiangMai-US/shopping.html', '_blank')" class="flex flex-col items-center gap-2 group"><div class="w-14 h-14 bg-white rounded-2xl shadow-sm flex items-center justify-center text-rose-500 group-active:scale-90 transition-transform shadow-[0_4px_10px_rgba(244,63,94,0.2)]"><i class="ph ph-handbag text-3xl"></i></div><span class="text-[11px] font-bold text-gray-700">Shopping</span></button>
-            <button onclick="window.openModal('itineraryModal')" class="flex flex-col items-center gap-2 group"><div class="w-14 h-14 bg-white rounded-2xl shadow-sm flex items-center justify-center text-pink-500 group-active:scale-90 transition-transform shadow-[0_4px_10px_rgba(236,72,153,0.2)]"><i class="ph ph-calendar-check text-3xl"></i></div><span class="text-[11px] font-bold text-gray-700">Itinerary</span></button>
+            
+            <!-- Itinerary (External Link) -->
+            <button onclick="window.open('https://linkuei0425.github.io/ChiangMai-US/S.html', '_blank')" class="flex flex-col items-center gap-2 group"><div class="w-14 h-14 bg-white rounded-2xl shadow-sm flex items-center justify-center text-pink-500 group-active:scale-90 transition-transform shadow-[0_4px_10px_rgba(236,72,153,0.2)]"><i class="ph ph-calendar-check text-3xl"></i></div><span class="text-[11px] font-bold text-gray-700">Itinerary</span></button>
             
             <button onclick="window.open('https://linkuei0425.github.io/ChiangMai-US/trip.html', '_blank')" class="flex flex-col items-center gap-2 group"><div class="w-14 h-14 bg-white rounded-2xl shadow-sm flex items-center justify-center text-emerald-500 group-active:scale-90 transition-transform shadow-[0_4px_10px_rgba(16,185,129,0.2)]"><i class="ph ph-ticket text-3xl"></i></div><span class="text-[11px] font-bold text-gray-700">Tour Guide</span></button>
             
@@ -255,25 +257,6 @@
                     <a id="attr-map-link" href="#" target="_blank" class="block w-full bg-blue-600 text-center py-3.5 rounded-xl font-bold shadow-lg mt-2">Open in Google Maps</a>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <!-- Itinerary Modal -->
-    <div id="itineraryModal" class="fixed inset-0 bg-teal-950 z-[80] hidden opacity-0 transition-opacity duration-300 flex flex-col max-w-[414px] mx-auto">
-        <div class="bg-itinerary-gradient text-white pt-10 pb-6 px-5 flex justify-between items-center shadow-md z-10"><h2 class="font-bold text-lg">Perfect Itineraries</h2><button onclick="window.closeModal('itineraryModal')"><i class="ph ph-x text-2xl"></i></button></div>
-        <div class="p-4 flex-1 overflow-y-auto bg-teal-950 no-scrollbar text-white">
-            <div class="flex gap-2 mb-5 overflow-x-auto no-scrollbar pb-1" id="itin-tabs-header">
-                <button onclick="window.renderItin('day1')" id="btn-itin-day1" class="itin-btn bg-teal-600 px-4 py-2 rounded-lg text-xs font-bold shadow-md shrink-0">Day 1: Old City</button>
-                <button onclick="window.renderItin('day2')" id="btn-itin-day2" class="itin-btn bg-teal-900 border border-teal-700 px-4 py-2 rounded-lg text-xs text-teal-200 shrink-0">Day 2: Nimman</button>
-                <button onclick="window.renderItin('day3')" id="btn-itin-day3" class="itin-btn bg-teal-900 border border-teal-700 px-4 py-2 rounded-lg text-xs text-teal-200 shrink-0">Day 3: Doi Suthep</button>
-                <button onclick="window.renderItin('day4')" id="btn-itin-day4" class="itin-btn bg-teal-900 border border-teal-700 px-4 py-2 rounded-lg text-xs text-teal-200 shrink-0">Day 4: Markets</button>
-                <button onclick="window.renderItin('day5')" id="btn-itin-day5" class="itin-btn bg-teal-900 border border-teal-700 px-4 py-2 rounded-lg text-xs text-teal-200 shrink-0">Day 5: Mae Rim</button>
-                <button onclick="window.renderItin('chiangrai')" id="btn-itin-chiangrai" class="itin-btn bg-teal-900 border border-teal-700 px-4 py-2 rounded-lg text-xs text-teal-200 shrink-0">Chiang Rai: Temples</button>
-                <button onclick="window.renderItin('pai')" id="btn-itin-pai" class="itin-btn bg-teal-900 border border-teal-700 px-4 py-2 rounded-lg text-xs text-teal-200 shrink-0">Pai: Nature</button>
-                <button onclick="window.renderItin('inthanon')" id="btn-itin-inthanon" class="itin-btn bg-teal-900 border border-teal-700 px-4 py-2 rounded-lg text-xs text-teal-200 shrink-0">Inthanon: Peak</button>
-                <button onclick="window.renderItin('elephant')" id="btn-itin-elephant" class="itin-btn bg-teal-900 border border-teal-700 px-4 py-2 rounded-lg text-xs text-teal-200 shrink-0">Elephant Camp</button>
-            </div>
-            <div id="itin-list" class="space-y-5 pb-8 relative"></div>
         </div>
     </div>
 
@@ -635,53 +618,6 @@ const essData = {
     ]
 };
 
-// --- Itinerary Data ---
-const itineraryData = {
-    day1: [
-        { time: "Morning", act: "<span class='font-bold text-teal-300'>Tha Phae Gate & Wat Chedi Luang</span><br>The east gate of the Old City, perfect morning light for photos with pigeons. Then walk into the Old City to visit the historic and magnificent Wat Chedi Luang." },
-        { time: "Afternoon", act: "<span class='font-bold text-teal-300'>Wat Phra Singh & Fah Lanna Spa</span><br>Visit Wat Phra Singh, a masterpiece of Lanna architecture. Followed by a relaxing 2-hour traditional Thai massage at Fah Lanna Spa." },
-        { time: "Evening", act: "<span class='font-bold text-teal-300'>Khao Kha Moo & North Gate Market</span><br>Head to Chang Phuak Gate (North Gate) to taste the famous 'Cowboy Hat Lady's Stewed Pork Leg' and explore local street food." }
-    ],
-    day2: [
-        { time: "Morning", act: "<span class='font-bold text-teal-300'>Nimman Road</span><br>The trendiest area in Chiang Mai, filled with unique cafes. Pick a specialty coffee shop (like Ristr8to) to enjoy a slow morning." },
-        { time: "Afternoon", act: "<span class='font-bold text-teal-300'>One Nimman & Maya Mall</span><br>Stroll through the European-style One Nimman for local designs and scents. By late afternoon, head to Maya's rooftop for sunset viewing." },
-        { time: "Evening", act: "<span class='font-bold text-teal-300'>Khao Soi Mae Sai or Nimman Night Market</span><br>You must try 'Khao Soi' (Northern Thai Curry Noodles), featuring a rich coconut curry broth with crispy noodles." }
-    ],
-    day3: [
-        { time: "Morning", act: "<span class='font-bold text-teal-300'>Wat Phra That Doi Suthep</span><br>Take a red truck up the mountain. It's the most sacred temple in Chiang Mai. Its golden stupa shines brilliantly, offering a panoramic view of the city." },
-        { time: "Noon", act: "<span class='font-bold text-teal-300'>Chiang Mai Univ. (CMU) & Wat Umong</span><br>Head down to the serene CMU Lake, then visit the hidden forest temple, Wat Umong, walking through its mysterious tunnel shrines." },
-        { time: "Evening", act: "<span class='font-bold text-teal-300'>CMU Night Market (Malin Plaza)</span><br>A favorite spot for local students, offering great value clothing, cosmetics, and creative budget-friendly street food." }
-    ],
-    day4: [
-        { time: "Morning", act: "<span class='font-bold text-teal-300'>Jing Jai Market</span><br><b>(Weekends Only)</b> The best green farmers' market! High-quality original crafts, pour-over coffee, and organic produce. Go early to experience the slow-living vibe." },
-        { time: "Afternoon", act: "<span class='font-bold text-teal-300'>Warorot Market & Ping River</span><br>Buy souvenirs like dried strawberries and Thai sausages at the largest traditional market. Then, stroll along the Ping River for afternoon tea." },
-        { time: "Evening", act: "<span class='font-bold text-teal-300'>Weekend Walking Street</span><br><b>Sat: Wua Lai / Sun: Tha Phae Gate</b>. Prepare your stamina! It's one of Asia's largest craft markets. Eat and shop from start to finish!" }
-    ],
-    day5: [
-        { time: "Morning", act: "<span class='font-bold text-teal-300'>Baan Kang Wat or Mae Rim</span><br><b>(Opt A) Baan Kang Wat:</b> An artsy village hidden in the woods; try pottery.<br><b>(Opt B) Mae Rim:</b> Head to the mountain suburbs, visiting stunning cliff cafes or riding the jungle coaster." },
-        { time: "Afternoon", act: "<span class='font-bold text-teal-300'>Mon Jam Viewpoint</span><br>Located higher up in Mae Rim. Once a royal agricultural project, now covered in beautiful flower fields overlooking grand mountain terraces." },
-        { time: "Evening", act: "<span class='font-bold text-teal-300'>Final Northern Thai Dinner</span><br>Return to the city and find a beautiful Lanna-style restaurant (like Dash! Restaurant) to enjoy green curry and lemongrass fish." }
-    ],
-    chiangrai: [
-        { time: "Morning", act: "<span class='font-bold text-teal-300'>Mae Khachan Hot Spring & White Temple</span><br>Depart from Chiang Mai, stop for a foot bath at the hot springs. Arrive at Chiang Rai to see the purely white, mind-blowing 'White Temple'." },
-        { time: "Afternoon", act: "<span class='font-bold text-teal-300'>Blue Temple & Black House</span><br>Admire the intense, magical colors of the Blue Temple. Then head to the Black House museum to see avant-garde art made of animal bones and dark wood." },
-        { time: "Evening", act: "<span class='font-bold text-teal-300'>Return to CM or stay in CR</span><br>Day tours usually return to Chiang Mai by 8-9 PM. If traveling independently, explore Chiang Rai Night Bazaar and the Clock Tower light show." }
-    ],
-    pai: [
-        { time: "Morning", act: "<span class='font-bold text-teal-300'>Survive 762 Curves to Pai</span><br>Take a minivan from Chiang Mai through the famous winding roads to Pai. Rent a scooter to start exploring this laid-back town." },
-        { time: "Afternoon", act: "<span class='font-bold text-teal-300'>WWII Bridge, Strawberry Farm & Pai Canyon</span><br>Ride around the cute Yellow House and big swings. Make sure to reach Pai Canyon before sunset to walk the narrow red dirt ridges." },
-        { time: "Evening", act: "<span class='font-bold text-teal-300'>Pai Walking Street</span><br>A small but incredibly exotic night market. It gathers backpackers and hippie musicians from all over the world. The vibe is amazing." }
-    ],
-    inthanon: [
-        { time: "Morning", act: "<span class='font-bold text-teal-300'>Wachirathan Waterfall</span><br>Head to Doi Inthanon National Park, the highest peak in Thailand. First stop: a massive, powerful waterfall that sprays mist everywhere." },
-        { time: "Noon", act: "<span class='font-bold text-teal-300'>Twin Royal Stupas</span><br>Two pagodas built high on the mountain, surrounded by beautiful royal gardens. When the mist rolls in, it looks like a fairyland." },
-        { time: "Afternoon", act: "<span class='font-bold text-teal-300'>Highest Point & Kew Mae Pan Trail</span><br>Reach the 2,565m summit sign. If in season, highly recommend the Kew Mae Pan nature trail, walking through a mossy cloud forest for epic sea-of-clouds views." }
-    ],
-    elephant: [
-        { time: "Half/Full Day", act: "<span class='font-bold text-teal-300'>Ethical Elephant Sanctuary</span><br>Please choose ethical camps (like Elephant Nature Park) with 'No Riding, No Shows'. Change into farmer clothes and learn their rescue stories.<br><br>Experience making rice balls to feed them, walk into the mud bath together, and help them bathe in the river. The most touching nature experience in Northern Thailand." }
-    ]
-};
-
 // --- Rendering Logic ---
 window.switchEssTab = t => {
     let isC = (t === 'checklist');
@@ -689,12 +625,6 @@ window.switchEssTab = t => {
     document.getElementById('ess-goodies').classList.toggle('hidden', isC);
     document.getElementById('btn-ess-checklist').className = isC ? "flex-1 bg-violet-600 text-white py-2 rounded-lg text-sm font-bold shadow-md transition-all" : "flex-1 bg-slate-800 text-slate-300 border border-slate-700 py-2 rounded-lg text-sm font-bold transition-all";
     document.getElementById('btn-ess-goodies').className = !isC ? "flex-1 bg-violet-600 text-white py-2 rounded-lg text-sm font-bold shadow-md transition-all" : "flex-1 bg-slate-800 text-slate-300 border border-slate-700 py-2 rounded-lg text-sm font-bold transition-all";
-};
-
-window.renderItin = d => {
-    document.querySelectorAll('.itin-btn').forEach(t => t.className = "itin-btn bg-teal-900 border border-teal-700 px-4 py-2 rounded-lg text-xs text-teal-200 shrink-0");
-    document.getElementById('btn-itin-' + d).className = "itin-btn bg-teal-600 text-white font-bold px-4 py-2 rounded-lg text-xs shadow-md shrink-0";
-    document.getElementById('itin-list').innerHTML = '<div class="absolute left-[11px] top-2 bottom-2 w-0.5 bg-teal-800 border-l-2 border-dotted"></div>' + itineraryData[d].map((i, idx) => `<div class="relative pl-8 animate-[fadeIn_0.3s_ease-out]" style="animation-delay: ${idx * 0.05}s"><div class="absolute left-[7px] top-1 w-2.5 h-2.5 bg-teal-400 rounded-full shadow-[0_0_8px_rgba(45,212,191,0.8)]"></div><span class="text-[10px] text-teal-300 font-mono font-bold block mb-0.5">${i.time}</span><div class="bg-teal-900/40 p-3 rounded-xl border border-teal-800/50 text-sm text-white leading-relaxed">${i.act}</div></div>`).join('');
 };
 
 window.resetAttrView = () => { document.getElementById('attr-cat-grid').classList.remove('hidden'); document.getElementById('attr-detail-view').classList.add('hidden'); document.getElementById('attr-result').classList.add('hidden'); };
@@ -939,8 +869,6 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const eG = document.getElementById('ess-goodies');
     if(eG) eG.innerHTML = essData.good.map(i=>`<div class="flex items-start gap-3 bg-slate-800/80 p-3.5 rounded-xl border border-slate-700"><div class="w-10 h-10 rounded-full bg-violet-500/20 text-violet-400 flex flex-col justify-center items-center shrink-0"><i class="ph-fill ph-star"></i></div><div><p class="font-bold text-sm text-white">${i.n}</p><p class="text-[11px] text-slate-400">${i.d}</p></div></div>`).join('');
-
-    renderItin('day1');
 
     const aG = document.getElementById('attr-cat-grid');
     if(aG){
